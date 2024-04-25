@@ -1,0 +1,118 @@
+*
+  margin: 0
+  padding: 0
+  list-style: none
+  box-sizing: border-box
+
+section
+  padding: 10px 0 0 10px
+  width: 100%
+
+.modal
+  width: 180px
+  height: 50px  
+  .open-btn
+    width: 100%
+    height: 100%
+    font-size: 16px
+    background: #e45768
+    color: #FFFFFF
+    border-radius: 50px
+    text-align: center
+    border: none
+    cursor: pointer
+  .modal-content
+    display: none
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100vh
+    background: rgba(#000 ,0.5 )
+    overflow: hidden
+    z-index: 1
+    .inner
+      width: 50%
+      position: relative
+      text-align: center
+      background: #f8f8f8
+      border-radius: 16px
+      padding: 30px 20px
+      top: 50%
+      left: 50%
+      transform: translate(-50%,-50%)
+      .close-btn
+        position: absolute
+        top:10px
+        right:10px
+        width: 40px
+        height: 40px
+        font-size: 16px
+        background: #404040
+        color: #fff
+        border-radius: 40px
+        line-height: 40px
+        text-align: center
+        cursor: pointer
+
+.drop
+  width: 180px
+  height: 50px  
+  margin-top: 30px
+  margin-bottom: 150px
+  position: relative
+  .dropdown-btn
+    width: 100%
+    height: 100%
+    font-size: 16px
+    background: #e45768
+    color: #FFFFFF
+    border-radius: 10px
+    text-align: center
+    border: none
+    cursor: pointer
+  .dropdown-menu
+    position: absolute
+    top: 100%
+    margin-top: 5px
+    padding: 0
+    width: 100%
+    display: none
+    li
+      padding: 8px 32px
+      background: #e4576880
+      border-radius: 5px
+      &:not(:last-child)
+        margin-bottom: 3px
+.tabs
+  width: 50%
+  margin-top: 30px
+  .tabs-nav ul
+    margin: 0
+    padding: 0
+    .tab
+      display: inline-block
+      background:#e45768
+      color: #fefefe
+      margin-right: 5px
+      padding: 8px 16px
+      border-radius: 6px 6px 0 0
+      border-width: 1px 1px 0 1px
+      border-style: solid
+      border-color: #e45768
+      cursor: pointer
+      &.active
+        background: #fff
+        color: #e45768
+        font-weight: bold
+  .tabs-content
+    border: 1px solid #e45768
+    padding:32px 16px
+    background: #FFF
+    margin-top: -1px
+    overflow: hidden
+    .content
+      display: none
+      &.active
+        display: block
+      
