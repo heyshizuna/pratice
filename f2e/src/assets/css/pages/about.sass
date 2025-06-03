@@ -1,0 +1,161 @@
+@import ../base/_variable
+@import ../base/_mixin
+
+.about-page
+	.bannerBox
+		width: 100%
+	// banner
+	.bannerBox
+		position: relative
+		.container 
+			width: 100%
+			min-height: 500px
+			padding: 60px calc(var(--1frSpace) * 2 + var(--baseSpace))
+			display: flex
+			justify-content: center
+			align-items: center
+			+rwdmax(1500)
+				padding: 60px calc(var(--1frSpace) + var(--baseSpace))
+			+rwdmax(900)
+				padding: 50px calc(var(--1frSpace) * 2 + var(--baseSpace))
+			+rwdmax(767)
+				padding: 50px var(--baseSpace)
+		.txtBox
+			width: calc(900px / 1500px * 100%)
+			max-width: 900px
+			position: relative
+			z-index: 2
+			transform: translateY(30px)
+			opacity: 0
+			transition: .8s transform .2s, .8s opacity .2s
+			+rwdmax(900)
+				width: 100%
+				max-width: 100%
+			.subSlogan
+				font-family: 'roboto-regular'
+				font-size: px(80)
+				font-weight: bold
+				line-height: 1
+				width: 100%
+				+rwdmax(900)
+					font-size: px(20)
+		.bgBox
+			width: 100%
+			height: 100%
+			overflow: hidden
+			+posCenter
+			.pic
+				width: 100%
+				height: 100%
+				img
+					width: 100%
+					height: 100%
+					object-fit: cover
+					transition: 1s transform .2s
+		&.aost-show
+			.txtBox
+				transform: translateY(0px)
+				opacity: 1
+			.bgBox
+				.pic
+					img
+						transform: scale(1.1)
+		// 主題色
+		&[data-theme='light']
+			color: #000
+			.unitTitle .paragraph
+				color: #000
+		&[data-theme='dark']
+			color: #fff
+			.unitTitle .paragraph
+				color: #fff
+		// 對齊方式
+		&[data-align='right']
+			.txtBox
+				margin-left: auto
+		&[data-align='center']
+			.txtBox
+				margin: 0 auto
+				text-align: center
+			.unitTitle
+				text-align: center
+		&[data-align='left']
+			.txtBox
+				margin-right: auto
+  
+	// 麵包屑
+	.breadCrumbs
+		width: 100%
+		padding: 20px 80px
+		overflow: hidden
+		font-size: px(14)
+		font-weight: 400
+		line-height: 1.6
+		letter-spacing: 0.5px
+		position: absolute
+		top: 0
+		left: 0
+		z-index: 5
+		+rwdmax(1200)
+			padding: 20px 50px
+		+rwdmax(900)
+			padding: 20px 30px
+		+rwdmax(767)
+			padding: 10px 20px
+
+		.items
+			width: auto
+			display: flex
+			justify-content: flex-start
+			align-items: center
+		.item
+			flex-shrink: 0
+			&:not(:first-child)
+				margin-left: 15px
+			&:not(:last-child)
+				>a
+					margin-right: 15px
+				&::after
+					content: ''
+					display: inline-block
+					width: 5px
+					height: 5px
+					border-right: 1px solid currentColor
+					border-top: 1px solid currentColor
+					transform: translateY(-50%) rotate(45deg)
+
+	.main-wrapper
+		main
+			.container
+				max-width: 1200px
+				width: calc(100% - 80px)
+				margin: 0 auto
+			section
+				width: 100%
+				&.section1
+					padding: 150px 0
+					.content
+						position: relative
+						._imgCover[data-aost]
+							opacity: 0
+							transform: scale(0.75)
+							&.show
+								animation: zoomIn 0.25s linear forwards
+				&.section2
+					.container
+						min-height: 50vh
+						display: flex
+						justify-content: center
+						align-items: center
+					.noData
+						font-size: px(30)
+						text-align: center
+
+
+@keyframes zoomIn
+	from
+		opacity: 0
+		transform: scale(0.75)
+	to
+		opacity: 1
+		transform: scale(1)

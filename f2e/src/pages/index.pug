@@ -1,0 +1,478 @@
+extends ../layouts/_template.pug
+
+block page
+  - const page = 'index';
+  - const css = 'index';
+
+block content
+  .banner
+    // Swiper
+    .swiper
+      .swiper-wrapper
+        .swiper-slide
+          .homeWelcome
+            h2 FESD
+            .subSlogan
+              span Front-End Suite Design Framework
+              p Designer Learning & Support
+        .swiper-slide
+          .media-box
+            video(src="https://cdn.wdd.idv.tw/video/chappie_Video1.mp4" muted playsinline)
+        .swiper-slide
+          .media-box
+            img.detect-shade(src="./assets/img/test-img.jpeg", alt="" loading="lazy" addClassEl=".media-box")
+        .swiper-slide
+          .media-box
+            video(src="https://cdn.wdd.idv.tw/video/chappie_Video2.mp4" muted playsinline)
+      // Add Arrows
+      .swiper-button-next
+      .swiper-button-prev
+      .swiper-pagination
+  section.section1
+    .container
+      -
+        const data = ['BIOS', 'Brochure', 'Design Document', 'Drawing', 'Driver', 'Manual', 'OS Image', 'Others', 'Wiki'];
+        const options = {
+          "drag": {
+            "selected": true
+          },
+          "collapse": {
+            "selected": true,
+          },
+          "dropdown": {
+            "placeholder": "SELECT YEAR",
+            "value": "all"
+          },
+          "breakpoint": {
+            "0": {
+              "type": "dropdown"
+            },
+            "768": {
+              "type": "collapse"
+            },
+            "1366": {
+              "type": "collapse"
+            }
+          }
+        };
+      h3 Multipurpose4 👇
+      multipurpose-nav(m4-type="collapse" m4-status="BIOS", m4-option= options)
+        each li, key in data
+          li.item(data-option= li)
+            .category= li
+  section.section2
+    .container
+      h3 Image Preview 👇
+      .welcome-wrap
+        .photo(data-upload-item="")
+          input.upload-btn(type="file" title="" data-change-after="testCallback()" data-over-limit="testCallback()")
+          .preview(data-preview="")
+            svg(xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 0 47.81 50")
+              g
+                path(d="M32.76,31.14H17.36A16.26,16.26,0,0,0,1.1,47.41v.29A2.23,2.23,0,0,0,3.27,50H46.71a2.22,2.22,0,0,0,2.19-2.2v-.1A16.34,16.34,0,0,0,32.76,31.14Z" transform="translate(-1.1)" fill="#2c2c2d")
+                path(d="M24.87,27.94h.18A14,14,0,1,0,11.18,13.87v.2A13.78,13.78,0,0,0,24.87,27.94Z" transform="translate(-1.1)" fill="#2c2c2d")
+        .text
+          h3 Hi, user
+          p
+  section.section3
+    .container
+      h3 Video4 👇
+      .row
+        .grid
+          .photo-box(video-target video-id="5bMdjkfvONE" video-type="youtube")
+            picture
+              source(srcset="https://cdn.wdd.idv.tw/image/video-cover01.webp" type="image/webp")
+              source(srcset="https://cdn.wdd.idv.tw/image/video-cover01.jpg" type="image/jpeg")
+              img(src="https://cdn.wdd.idv.tw/image/video-cover01.jpg" alt="")
+        .grid
+          .photo-box(video-target video-id="5bMdjkfvONE" video-type="youtube" video-mode="onPage")
+            picture
+              source(srcset="https://cdn.wdd.idv.tw/image/video-cover02.webp" type="image/webp")
+              source(srcset="https://cdn.wdd.idv.tw/image/video-cover02.jpg" type="image/jpeg")
+              img(src="https://cdn.wdd.idv.tw/image/video-cover02.jpg" alt="")
+        .grid
+          .photo-box(video-target video-id="XNDk5NzkwNzY3Mg" video-type="youku")
+            picture
+              source(srcset="https://cdn.wdd.idv.tw/image/video-cover03.webp" type="image/webp")
+              source(srcset="https://cdn.wdd.idv.tw/image/video-cover03.jpg" type="image/jpeg")
+              img(src="https://cdn.wdd.idv.tw/image/video-cover03.jpg" alt="")
+        .grid
+          .photo-box(video-target video-id="777062285" video-type="vimeo")
+            picture
+              source(srcset="https://cdn.wdd.idv.tw/image/video-cover04.webp" type="image/webp")
+              source(srcset="https://cdn.wdd.idv.tw/image/video-cover04.jpg" type="image/jpeg")
+              img(src="https://cdn.wdd.idv.tw/image/video-cover04.jpg" alt="")
+  section.section4
+    .container
+      h3 Tab4 👇
+      ul.tab-nav
+        li(t4-role="tab" t4-control="my-tab") Tab1
+        li(t4-role="tab" t4-control="my-tab") Tab2
+        li(t4-role="tab" t4-control="my-tab") Tab3
+        li(t4-role="tab" t4-control="my-tab") Tab4
+        li(t4-role="tab" t4-control="my-tab") Tab5
+        li(t4-role="tab" t4-control="my-tab") Tab6
+      tab-el(t4-name="my-tab")
+        .tab-panel(t4-role="tabPanel")
+          .content
+            h2 Content1
+            p Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam accusamus esse id, repudiandae iste adipisci commodi? Nesciunt, veniam sunt voluptas eos dignissimos corporis, itaque omnis beatae ad cum fuga sint.
+        .tab-panel(t4-role="tabPanel")
+          .content
+            h2 Content2
+            p Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam accusamus esse id, repudiandae iste adipisci commodi? Nesciunt, veniam sunt voluptas eos dignissimos corporis, itaque omnis beatae ad cum fuga sint.
+        .tab-panel(t4-role="tabPanel")
+          .content
+            h2 Content3
+            p Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam accusamus esse id, repudiandae iste adipisci commodi? Nesciunt, veniam sunt voluptas eos dignissimos corporis, itaque omnis beatae ad cum fuga sint.
+        .tab-panel(t4-role="tabPanel")
+          .content
+            h2 Content4
+            p Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam accusamus esse id, repudiandae iste adipisci commodi? Nesciunt, veniam sunt voluptas eos dignissimos corporis, itaque omnis beatae ad cum fuga sint.
+        .tab-panel(t4-role="tabPanel")
+          .content
+            h2 Content5
+            p Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam accusamus esse id, repudiandae iste adipisci commodi? Nesciunt, veniam sunt voluptas eos dignissimos corporis, itaque omnis beatae ad cum fuga sint.
+        .tab-panel(t4-role="tabPanel")
+          .content
+            h2 Content6
+            p Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam accusamus esse id, repudiandae iste adipisci commodi? Nesciunt, veniam sunt voluptas eos dignissimos corporis, itaque omnis beatae ad cum fuga sint.
+  section.section5
+    .container
+      h3 Dropdown4 👇
+      .wrap
+        .dropdown-row
+          h4.area-title 單層下拉選單
+          .dropdown-wrap
+            dropdown-el.dropdown1(d4-placeholder="下拉選單1" control-elements=".dropdown2")
+              li(data-option="customID") option1
+              li option2
+              li option3
+              li option4
+              li option5
+              li option6
+              li option7
+            dropdown-el.dropdown2.disabled(d4-placeholder="請先選擇下拉選單1" d4-value="option5")
+              li 下拉選單2
+              li option1
+              li option2
+              li option3
+              li option4
+              li option5
+              li option6
+              li option7
+        .dropdown-row
+          h4.area-title 雙層下拉選單
+          .dropdown-wrap
+            dropdown-el.dropdown3(d4-placeholder="請選擇服務分類" control-elements=".dropdown4" data-json=`{"工程專案管理":[{"id":1,"title":"純水系統工程","options":["純水套裝設備輸出","軟水系統","化學品廠房純水系統","電子廠純水系統","面板廠純水系統","半導體廠純水系統","海水淡化系統"]},{"id":2,"title":"廢水系統工程","options":["一般酸鹼處理系統","HF處理系統","CMP/Cu CMP處理系統","生物處理系統","氨氮廢水處理系統","金屬廢水處理系統","含銅廢水處理系統","含鈷廢水處理系統","硫酸銨乾燥系統"]},{"id":3,"title":"回收水系統工程","options":["純水DIR回收系統","CMP回收系統","Cu CMP回收系統","BG及含矽廢水回收系統","SAW廢水回收系統","LSR回收系統","一般酸鹼回收系統","氨氮廢水回收系統","含氟廢水回收系統","有機廢水回收系統"]},{"id":4,"title":"化學品回收製造系統","options":["氨氮回收系統","TMAH 回收系統","IPA 回收系統","廢硫酸回收系統 (活性炭法)","廢硫酸回收系統 (鹽酸法)","硫酸銅回收系統","硫酸鈷回收系統"]}],"廠務服務":[{"id":1,"title":"水處理方案","options":["水處理方案"]},{"id":2,"title":"實驗室服務","options":["系統流程方案諮詢整合","系統維護操作諮詢整合","實驗室服務(TAF認證)"]}],"再生服務":[{"id":1,"title":"薄膜清洗及樹脂再生服務","options":["離子交換換樹脂再生服務","薄膜元件再生清洗服務"]},{"id":2,"title":"元件耗材販售更換","options":["濾材","濾心","膜類","儀表","設備"]}],"藥品服務":[{"id":1,"title":"水處理化學品(化學品應用銷售)","options":["雙氧水去除劑","非氧化性殺菌劑","RO膜抑垢劑","重金屬捕集劑","汙泥調理劑","高分子凝集劑","汙泥脫水劑","粉體絮凝劑","生物營養劑","微生物調理劑","各類微生物菌種","非矽型消泡劑及各式消泡劑"]}]}`)
+              li.has-sublayer
+                .header
+                  .title(title="系統工程") 系統工程
+                  .icon
+                .sub-dropdown
+                  ul.sub-dropdown-list
+                    li 工程專案管理
+              li.has-sublayer
+                .header
+                  .title(title="服務與系統") 服務與系統
+                  .icon
+                .sub-dropdown
+                  ul.sub-dropdown-list
+                    li 廠務服務
+                    li 再生服務
+                    li 藥品服務
+            dropdown-el.dropdown4.disabled(d4-placeholder="請先選擇服務分類")
+  section.section6
+    .container
+      h3 Collapse 👇
+      .wrap
+        .collapseItem(partnerCollapse-wrapper)
+          .collapseTitle(collapse-block)
+            p 以下是公版套件
+            i.arrow
+          .collapseContent(collapse-target)
+            .innerBox
+              .content  
+                p aaaaa
+                p aaaaa
+                p aaaaa
+                p aaaaa
+        .collapseItem(partnerCollapse-wrapper)
+          .collapseTitle(collapse-block)
+            p BBBBB
+            i.arrow
+          .collapseContent(collapse-target)
+            .innerBox
+              .content  
+                p bbbbb
+                p bbbbb
+                p bbbbb
+                p bbbbb
+        .collapseItem(partnerCollapse-wrapper)
+          .collapseTitle(collapse-block)
+            p CCCCC
+            i.arrow
+          .collapseContent(collapse-target)
+            .innerBox
+              .content  
+                p ccccc
+                p ccccc
+                p ccccc
+                p ccccc
+      .wrap
+        .collapseItem(data-collapse)
+          .collapseTitle(data-collapse-click)
+            p 以下是簡易版
+            i.arrow
+          .collapseBox(data-collapse-content)
+            .innerBox
+              .content  
+                p aaaaa
+                p aaaaa
+                p aaaaa
+                p aaaaa
+        .collapseItem(data-collapse)
+          .collapseTitle(data-collapse-click)
+            p BBBBB
+            i.arrow
+          .collapseBox(data-collapse-content)
+            .innerBox
+              .content  
+                p bbbbb
+                p bbbbb
+                p bbbbb
+                p bbbbb
+        .collapseItem(data-collapse)
+          .collapseTitle(data-collapse-click)
+            p CCCCC
+            i.arrow
+          .collapseBox(data-collapse-content)
+            .innerBox
+              .content  
+                p ccccc
+                p ccccc
+                p ccccc
+                p ccccc
+  section.section7
+    .container
+      h3 Ripple4 👇
+      ripple-btn(class="square-btn" r4-color="#dc3545") hover me!
+  section.section8
+    .container
+      h3 Form Component 👇
+      .wdd-form
+        // .form-component / h4.area-title / .row-wrap
+        // 以上三個僅做demo用 可以不用複製
+        // 基本結構為 form.wdd-form > .form-row > .form-grid > label.form-group
+        .form-component
+          h4.area-title Type - Text 
+            br
+            |(一般文字輸入)
+          .row-wrap
+            .form-row
+              .form-grid
+                label.form-group.required
+                  p.subject 姓氏
+                  .input-wrap
+                    input(form-field="lastName" type="text" placeholder="請輸入姓氏")
+              .form-grid
+                label.form-group.required
+                  p.subject 名字
+                  .input-wrap
+                    input(form-field="firstName" type="text" placeholder="請輸入名字")
+            .form-row
+              .form-grid
+                label.form-group.required
+                  p.subject 信箱
+                  .input-wrap
+                    input(form-field="mail" type="email" inputmode="email" placeholder="請輸入信箱" data-verify="email")
+              .form-grid
+                label.form-group.required
+                  p.subject 手機號碼
+                  .input-wrap
+                    input(form-field="phone" type="tel" inputmode="tel" placeholder="請輸入手機號碼" data-verify="phone")
+        .form-component
+          h4.area-title Type - Dropdown Single 
+            br
+            |(下拉選單 - 單選)
+          .row-wrap
+            .form-row
+              .form-grid
+                .form-group
+                  p.subject 國家(下拉全滿+篩選)
+                  dropdown-el.type-fullbox.filter(d4-placeholder="請選擇您的國家" form-field="country" field-type="isSelect" data-verify="select")
+                    li(data-id="Taiwan") Taiwan
+                    li United States
+                    li United Kingdom
+                    li France
+                    li Japan
+                    li Korea
+            .form-row
+              .form-grid
+                .form-group
+                  p.subject 產業(下拉非全滿)
+                  dropdown-el(d4-placeholder="請選擇您的產業" form-field="work" field-type="isSelect" data-verify="select")
+                    li Awards & Recognition
+                    li Educational Facility
+                    li Engraving Services
+                    li Fabrics & Textiles
+                    li Architectural & Model Maker
+        .form-component
+          h4.area-title Type - Dropdown Multiple 
+            br
+            |(下拉選單 - 複選)
+          .row-wrap
+            .form-row
+              .form-grid
+                // 複選下拉選單 .form-group 不要用label標籤
+                .form-group
+                  p.subject 如何得知此網站
+                  dropdown-el.filter(d4-placeholder="請告訴我們，您如何得知此網站" filter-placeholder="filter" d4-value="Facebook,Instagram,customID" form-field="pop" field-type="isSelect" multiple data-verify="select")
+                    li Facebook
+                    li Instagram
+                    li 親友介紹
+                    li(data-option="customID") 其他管道
+        .form-component
+          h4.area-title Type - Dropdown & Input 
+            br
+            |(下拉選單 & 文字輸入框)
+          .row-wrap
+            .form-row
+              .form-grid
+                .form-group.required
+                  p.subject 聯繫地址
+                  // 如果是選縣市要加上 .city 並指定輸出地區的element(dist-select="element selector")
+                  dropdown-el.city(d4-placeholder="請選擇縣/市" form-field="city" field-type="isSelect" dist-select="dist" control-elements=".dist,.address" d4-value="臺北市" data-verify="select")
+                  // 如果是選地區要加上 .dist 預設 disabled
+                  dropdown-el#dist.dist(d4-placeholder="請選擇地區" form-field="dist" field-type="isSelect" d4-value="臺北市,松山區" data-verify="select")
+                  .input-wrap
+                    input.address(form-field="address" type="text" placeholder="請輸入您的完整地址")
+        // checkbox
+        .form-component
+          h4.area-title Type - Checkbox 
+            br
+            |(複選)
+          .row-wrap
+            .form-row
+              .form-grid
+                .form-group.checkbox
+                  p.subject Checkbox
+                  .form-check(form-field="checkbox" field-type="isCheckBox" data-verify="checkbox")
+                    .option-item
+                      .checkbox-wrap
+                        input(type="checkbox")
+                        .fake-checkbox
+                      .text(data-id="0") checkbox1
+                    .option-item
+                      .checkbox-wrap
+                        input(type="checkbox")
+                        .fake-checkbox
+                      .text(data-id="1") checkbox2
+                    .option-item
+                      .checkbox-wrap
+                        input(type="checkbox")
+                        .fake-checkbox
+                      .text(data-id="2") checkbox3
+        // radio
+        .form-component
+          h4.area-title Type - Radio 
+            br
+            |(單選)
+          .row-wrap
+            .form-row
+              .form-grid
+                .form-group
+                  p.subject
+                    span.tip Radio
+                  .form-check(form-field="radio" field-type="isRadio" data-verify="radio")
+                    label.option-item
+                      .checkbox-wrap
+                        input(type="radio" name="radio-group" checked="")
+                        .fake-checkbox
+                      .text(data-id="0") radio1
+                    label.option-item
+                      .checkbox-wrap
+                        input(type="radio" name="radio-group")
+                        .fake-checkbox
+                      .text(data-id="1") radio2
+        // file 上傳檔案
+        .form-component
+          h4.area-title Type - file upload 
+            br
+            |(檔案上傳)
+          .row-wrap
+            .form-row
+              .form-grid
+                label.form-group
+                  p.subject Files
+                  .file-wrap
+                    input(form-field="file" field-type="isFile" type="file" data-limit="2" data-verify="file")
+                    .fake-file-upload(data-default="檔案大小限制在 2MB 以下")
+                      p.file-name 檔案大小限制在 2MB 以下
+                      .upload-icon
+        // 選擇日期時間
+        .form-component
+          h4.area-title Type - Date & Time Picker 
+            br
+            |(日期/時間選擇器)
+          .row-wrap
+            .form-row
+              .form-grid
+                .form-group
+                  p.subject Date
+                  .input-wrap
+                    input.datepicker-input(form-field="date" type="text" placeholder="Select Date" data-verify="date")
+              .form-grid
+                .form-group
+                  p.subject Time
+                  .input-wrap
+                    input.timepicker-input(form-field="time" type="text" placeholder="Select Time" data-verify="date")
+        // textarea
+        .form-component
+          h4.area-title Type - Textarea 
+            br
+            |(多行文字輸入框)
+          .row-wrap
+            .form-row
+              .form-grid
+                label.form-group.textarea
+                  p.subject Textarea 1
+                  .input-wrap
+                    textarea.textarea-scrollbar(form-field="message" placeholder="enter something ..." data-verify="textarea")
+        // 驗證碼
+        .form-component
+          h4.area-title Type - Verify
+            br
+            |(驗證碼)
+          .row-wrap
+            .form-row
+              .form-grid
+                label.form-group.verification.required
+                  p.subject Verify
+                  .input-wrap
+                    input(form-field="verify" type="text" placeholder="enter verify code" data-verify="verifyCode")
+                  // 重新整理按鈕
+                  a.refresh-btn(href="javascript:;")
+                    img(alt="" src="./assets/img/verify-code.jpg")
+                    i.icon-refresh
+        // 送出&清除按鈕
+        .form-btn-group
+          .btn.form-clear 清除全部
+          .btn.form-done 送出
+  section.section9
+    .sample-tips(tips-text="以下為示意畫面，協助您了解列表呈現樣式，\n當您成功建立一筆資料後，畫面將替換為實際建置內容。")
+    .container
+      .row
+        .grid
+          .photo-box
+            img.lazy(alt="" data-src="")
+        .grid
+          .photo-box
+            img.lazy(alt="" data-src="")
+        .grid
+          .photo-box
+            img.lazy(alt="" data-src="")
+        .grid
+          .photo-box
+            img.lazy(alt="" data-src="")
+

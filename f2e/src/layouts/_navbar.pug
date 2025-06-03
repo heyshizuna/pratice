@@ -1,0 +1,17 @@
+nav.navbar
+  .container
+    a.logo(href="./index.html")
+      img.lazy.detect-shade(data-src="./assets/img/FESD-logo.svg" alt="LOGO")
+    ul.menu
+      li
+        a(href="javascript:;" onClick='document.body.fesd.scrollLock()') scrollLock
+      li
+        a(href="javascript:;" onClick='document.body.fesd.scrollUnlock()') scrollUnlock
+      li
+        a(href="./about.html") About
+      li
+        a(href="javascript:;" data-modal-target="my-modal") 燈箱
+      li
+        a.anchor-btn(href="javascript:;" data-anchor-target=".section1") 錨點
+      li(web-share)
+        a.copy-url(href="javascript:;" share-target="url" copy-success="已複製連結" copy-text copy-duration) 複製連結

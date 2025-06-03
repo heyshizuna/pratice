@@ -1,0 +1,157 @@
+extends ../layouts/_template.pug
+
+block page
+  - const page = 'mission';
+  - const css = 'mission';
+
+block content
+  section.button(d-grid)
+    h3.title Button Effect
+    .container
+      .btn-box
+        .btn
+          a.button1.solid(href="javascript:;")
+            .arrow
+            .txt EXPLORE
+          a.button1.bg(href="javascript:;")
+            .arrow
+            .txt EXPLORE
+        .hamburger
+          a.menu1(href="javascript:;")
+            .inner 
+              span
+              span
+              span
+        .desc
+          p 適合的產業類型：休閒產業、運動產業
+          p 說明：視覺上比較有帶動感的按鈕
+      .btn-box
+        .btn
+          a.button2(href="javascript:;")
+            .txt EXPLORE
+            .arrow
+              i.icon-angle-right
+        .hamburger
+          a.menu2(href="javascript:;")
+            span 
+            span 
+            span
+        .desc
+          p 適合的產業類型：餐飲業、文化產業、設計產業
+          p 說明：簡單動態不搶戲
+      .btn-box
+        .btn
+          a.button3(href="javascript:;")
+            .txt EXPLORE
+            .arrow
+              i.icon-angle-right
+        .hamburger
+          a.menu3(href="javascript:;")
+            .inner 
+              span 
+              span 
+              span
+        .desc
+          p 適合的產業類型：製造產業、科技產業
+          p 說明：有一種飛越開創、探索動力的感覺
+      .btn-box
+        .btn
+          a.button4.border(href="javascript:;")
+            .txt EXPLORE
+          a.button4(href="javascript:;")
+            .txt EXPLORE
+        .hamburger
+          a.menu4(href="javascript:;")
+            span
+            span
+            span
+        .desc
+          p 適合的產業類型：藝術產業、服飾產業
+          p 說明：想要較為繽紛色彩點綴的按鈕
+      .btn-box
+        .btn
+          a.button5.border(href="javascript:;")
+            .txt EXPLORE
+          a.button5(href="javascript:;")
+            .txt EXPLORE
+        .hamburger
+          a.menu5(href="javascript:;")
+            span
+            span
+            span
+        .desc
+          p 適合的產業類型：傳統產業、金融產業
+          p 說明：較為保守的動態適合傳統或制式的產業
+      .btn-box
+        .btn
+          a.button6(href="javascript:;")
+            .txt EXPLORE
+        .hamburger
+          a.menu6(href="javascript:;")
+            span 
+            span 
+            span
+        .desc
+          p 適合的產業類型：旅遊產業、娛樂產業
+          p 說明：輕鬆活潑的按鈕，適合休閒娛樂類型的產業
+      .btn-box
+        .btn
+          a.button7(href="javascript:;")
+            .txt EXPLORE
+        .hamburger
+          a.menu7(href="javascript:;")
+            span
+            span
+        .desc
+          p 適合的產業類型：加工產業、電子產業、製造產業
+          p 說明：需要組裝的產業都很適合這個按鈕
+      .btn-box
+        .btn
+          a.button8(href="javascript:;")
+            .txt EXPLORE
+        .hamburger
+          a.menu8(href="javascript:;")
+            span
+        .desc
+          p 適合的產業類型：商業、教育產業
+          p 說明：會產生較多人類行為往來的產業適合這個按鈕
+      .btn-box
+        .btn
+          a.button9.vertical(href="javascript:;")
+            .arrow
+              i.icon-plus
+            .txt EXPLORE
+          a.button9.horizontal(href="javascript:;")
+            .arrow
+              i.icon-plus
+            .txt EXPLORE
+        .hamburger
+          a.menu9(href="javascript:;")
+            .inner
+              span
+        .desc
+          p 適合的產業類型：通訊產業、資訊產業
+          p 說明：揭示感覺的按鈕
+      .btn-box
+        .btn
+          a.button10(href="javascript:;")
+            .txt EXPLORE
+        .hamburger
+          a.menu10(href="javascript:;")
+            span
+            span
+        .desc
+          p 適合的產業類型：物流業、交通運輸業
+          p 說明：有通行動作都適合這個按鈕
+  section.swiperBlock(d-grid)
+    h3.title Swiper Effect
+    // banner image card*3
+    .container
+      .swiper-box 
+        .swiper.swiperbanner
+          .swiper-wrapper
+            .swiper-slide
+              img(src="./assets/img/test-img.jpeg" alt="" loding="lazy")
+        .swiper-pagination
+        .swiper-button-prev
+        .swiper-button-next

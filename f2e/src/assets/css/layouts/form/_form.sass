@@ -1,0 +1,352 @@
+@import ./_variables
+
+@mixin validationIcon()
+  &.error
+    .validation-icon,+ .validation-icon
+      display: block
+      background-image: url('/assets/img/error.svg')
+      &:hover,:active
+        &::before
+          opacity: 1
+  &.success
+    .validation-icon,+ .validation-icon
+      display: block
+      background-image: url('/assets/img/success.svg')
+
+
+.wdd-form
+  max-width: $formWidth
+  width: 100%
+  margin: 0 auto
+  padding: 0 30px
+
+.form-row
+  display: flex
+  align-items: center
+  margin: 0 (-$gap-x * 0.5)
+  &:not(:first-child)
+    margin-top: $gap-y
+
+.form-grid
+  width: 100%
+  padding:  0 ($gap-x * 0.5)
+  &.col-6
+    width: 50%
+  &.col-4
+    width: calc(100% / 3)
+
+.error-detail
+  .error-text
+    color: $errorColor
+    &:not(:first-child)
+      margin-top: 10px
+
+.form-btn-group
+  display: flex
+  justify-content: center
+  flex-wrap: wrap
+  margin-top: 30px
+  pointer-events: none
+  .btn
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 120px
+    height: 40px
+    border: 1px solid #000000
+    border-radius: 10rem
+    transition: background-color 0.2s linear,color 0.2s linear
+    cursor: pointer
+    pointer-events: auto
+    &:hover
+      background-color: #000000
+      color: #ffffff
+    &:not(:last-child)
+      margin-right: 15px
+
+.form-group
+  position: relative
+  display: flex
+  align-items: flex-start
+  border-bottom: 1px solid rgba(0,0,0,0.2)
+  //必填星號
+  &.required
+    .subject
+      position: relative
+      &::before
+        content: '*'
+        position: absolute
+        top: 0
+        left: 0
+        color: #ff0000
+  //驗證碼
+  &.verification
+    .refresh-btn
+      display: flex
+      align-items: center
+      align-self: center
+      img
+        width: auto
+        height: 40px
+      i
+        font-size: px(20)
+        margin-left: 10px
+  &.textarea
+    .input-wrap
+      height: auto
+      padding: 10px 35px 10px 15px
+      border: 1px solid rgba(0, 0, 0, 0.2)
+      margin-bottom: 10px
+    .validation-icon
+      top: 10px
+      transform: none
+  &.success
+    border-bottom: 1px solid $successColor
+  &.error
+    border-bottom: 1px solid $errorColor
+    ~ .error-text
+      color: $errorColor
+      margin-top: 5px
+  //所有元件禁用狀態
+  *.disabled
+    opacity: 0.5
+    pointer-events: none
+  //主旨
+  .subject
+    flex-shrink: 0
+    padding: 10px 0 10px 15px
+    font-size: $subjectFontSize
+    line-height: $field-h
+    color: $subjectColor
+    margin-right: $subjectMargin
+  .input-wrap
+    position: relative
+    width: 100%
+    height: $field-h * $valueFontSize
+    margin: 10px 0
+    padding: 0 20px 0 15px
+    input
+      width: 100%
+      height: 100%
+      border: none
+      padding: 0
+      font-size: $valueFontSize
+      color: $valueColor
+      background-color: transparent
+      &::placeholder 
+        color: $noValueColor
+        opacity: 1 /* Firefox */
+      &:-ms-input-placeholder /* Internet Explorer 10-11 */
+        color: $noValueColor
+      &::-ms-input-placeholder  /* Microsoft Edge */
+        color: $noValueColor
+      +validationIcon
+
+  //文字輸入框
+  .textarea-scrollbar
+    display: block
+    width: 100%
+    height: 200px
+    padding: 0
+    border: none
+    line-height: $field-h
+    font-size: $valueFontSize
+    background-color: transparent
+    resize: none
+    &.os-textarea
+      &::placeholder 
+        color: $noValueColor
+        opacity: 1 /* Firefox */
+      &:-ms-input-placeholder /* Internet Explorer 10-11 */
+        color: $noValueColor
+      &::-ms-input-placeholder  /* Microsoft Edge */
+        color: $noValueColor
+    // textarea卷軸樣式
+    .os-theme-dark
+      > .os-scrollbar
+        > .os-scrollbar-track > .os-scrollbar-handle
+          background: $thumbColor
+        &:hover
+          > .os-scrollbar-track > .os-scrollbar-handle
+            background: $thumbHoverColor
+    +validationIcon
+  // 表單驗證圖示
+  .validation-icon
+    display: none
+    position: absolute
+    top: 50%
+    right: 0
+    width: 20px
+    height: 20px
+    transform: translate3d(0,-50%,0)
+    background-repeat: no-repeat
+    background-position: center
+    background-size: contain
+    &::before
+      content: attr(error-text)
+      position: absolute
+      top: -5px
+      right: 0
+      padding: 5px
+      border-radius: 4px
+      background-color: rgba($errorColor,.8)
+      color: #fff
+      font-size: px(14)
+      white-space: nowrap
+      transform: translate3d(0,-100%,0)
+      opacity: 0
+      transition: opacity .3s
+      pointer-events: none
+      
+
+  //下拉選單
+  dropdown-el
+    &:not([d4-value=""])
+      .select-display
+        color: $valueColor
+    &.type-fullbox
+      position: static
+    &[multiple]
+      .select-wrapper
+        padding: 4px 15px
+    &:not([multiple])
+      .select-wrapper
+        padding: 10px 15px
+    .select-wrapper
+      background-color: transparent
+      min-height: 44px
+    .select-display
+      position: relative
+      color: $noValueColor
+      font-size: $valueFontSize
+      line-height: $field-h * $valueFontSize
+    .validation-icon
+      position: relative
+      top: auto
+      right: auto
+      transform: none
+    .dropdown-icon
+      border-color: #000 transparent transparent transparent
+    +validationIcon
+  
+  //checkbox & radio
+  .form-check
+    width: 100%
+    display: flex
+    flex-wrap: wrap
+    +validationIcon
+    .option-item
+      display: flex
+      align-items: center
+      padding: 10px 0
+      margin-right: 15px
+      user-select: none
+      cursor: pointer
+      .checkbox-wrap
+        position: relative
+        width: 20px
+        height: 20px
+        border: 1px solid #000000
+        margin-right: 8px
+        >input
+          width: 100%
+          height: 100%
+          margin: 0
+          opacity: 0
+          cursor: pointer
+          &:checked ~ .fake-checkbox
+            opacity: 1
+        .fake-checkbox
+          position: absolute
+          top: 50%
+          left: 50%
+          transform: translate(-50%,-50%)
+          width: calc(100% - 4px)
+          height: calc(100% - 4px)
+          background-color: #ff0000
+          opacity: 0
+          pointer-events: none
+          transition: opacity 0.4s linear
+      .text
+        font-size: $valueFontSize
+        color: #000000
+        line-height: $field-h
+
+  //file-upload
+  .file-wrap
+    position: relative
+    width: 100%
+    margin-left: 15px
+    cursor: pointer
+    >input
+      width: 100%
+      height: 24px
+      margin: 10px 0
+      opacity: 0
+      &.error
+        + .fake-file-upload
+          .file-name
+            color: $errorColor
+          .validation-icon
+            display: block
+            background-image: url('/assets/img/error.svg')
+      &.success
+        + .fake-file-upload
+          .validation-icon
+            display: block
+            background-image: url('/assets/img/success.svg')
+    .fake-file-upload
+      position: absolute
+      width: 100%
+      height: 100%
+      display: flex
+      align-items: center
+      top: 0
+      left: 0
+      .file-name
+        font-size: $valueFontSize
+        color: $noValueColor
+        line-height: $field-h * $valueFontSize
+        padding-right: 20px
+        margin-right: auto
+        +ellipsis(1)
+      .validation-icon
+        position: relative
+        top: auto
+        right: auto
+        transform: none
+      .upload-icon
+        width: 30px
+        height: 30px
+        background-image: url('/assets/img/upload.svg')
+        background-repeat: no-repeat
+        background-position: center
+        background-size: contain
+      input[type="file"]
+        position: absolute
+        width: 100%
+        height: 100%
+        opacity: 0
+        pointer-events: none
+        z-index: -1
+
+  //日曆
+  .data-time-picker
+    position: relative
+    width: 100%
+    align-self: center
+    >input
+      width: 100%
+      height: $field-h * $valueFontSize
+      border: none
+      margin: 10px 0
+      padding: 0 15px
+      font-size: $valueFontSize
+      color: $valueColor
+      &::placeholder 
+        color: $noValueColor
+        opacity: 1 /* Firefox */
+      &:-ms-input-placeholder /* Internet Explorer 10-11 */
+        color: $noValueColor
+      &::-ms-input-placeholder  /* Microsoft Edge */
+        color: $noValueColor

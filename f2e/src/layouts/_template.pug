@@ -1,0 +1,50 @@
+block page
+  - let page = page ? page : '';
+  - let css = css ? css : '';
+
+doctype html
+html(lang="zh-Hant-TW" data-overlayscrollbars-initialize)
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    // Safari 電話號碼判斷
+    meta(content="telephone=no" name="format-detection")
+    title WDD F2E Framework
+    link(rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon")
+    // Google font
+    link(rel="preconnect" href="https://fonts.googleapis.com")
+    link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+    block fontSheet
+      link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Outfit:wght@100..900&family=Noto+Sans+TC:wght@100..900&display=swap")
+    // 共用樣式
+    link(rel="stylesheet", href="/assets/fonts/icomoon/style.css")
+    link(rel="stylesheet", href="/src/assets/css/style.sass")
+    // 個別頁面 CSS
+    block stylesheet
+    // 主頁面 CSS
+    link(rel="stylesheet", href=`/src/assets/css/pages/${css}.sass`)
+    // 共用 JS
+    script(defer type="module" src=`/src/assets/js/apps/${page}/page.js`) 
+
+  body(class=`${css}-page`  data-overlayscrollbars-initialize)
+    h1.visuallyhidden WDD F2E Framework!
+    .main-wrapper
+      // 導覽列
+      block navbar
+        include ./_navbar.pug
+
+      // 主要內容
+      main
+        block content
+
+      // 頁腳
+      block footer
+        include ./_footer.pug
+      
+      // cookie
+      block cookie
+        include ./components/_cookiePolicy.pug
+
+      modern-modal(data-modal-id="my-modal" data-modal-animate="clip-right")
+        .close-btn(data-modal-close)
+        .title Modal4

@@ -1,0 +1,8 @@
+.breadCrumbs
+  .items
+    each i in breadCrumbsData
+      .item
+        if i.href
+          a(href=i.href)=i.name
+        else
+          span=i.name

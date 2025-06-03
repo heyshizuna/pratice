@@ -1,0 +1,89 @@
+@import ../base/_variable
+@import ../base/_mixin
+
+.content
+	display: flex
+	width: 100vw
+	height: 100vh
+	background-color: #EFEFEF
+	.inner
+		margin: auto
+		text-align: center
+		padding: 0 60px
+		+rwdmax(768)
+			padding: 0 30px
+		.title
+			font-size: px(40)
+			font-weight: 600
+			line-height: 1.2
+			+rwdmax(768)
+				font-size: px(28)
+		.error-code
+			position: relative
+			display: inline-block
+			color: #fff
+			font-size: clamp(px(120),35vw,px(350))
+			line-height: 0.8
+			text-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05)
+			&._404
+				margin-top: 50px
+				svg
+					position: absolute
+					left: 33%
+					bottom: 0
+					width: 50%
+					height: auto
+			&._500
+				margin-top: 50px
+				svg
+					position: absolute
+					left: 50%
+					bottom: -6%
+					width: 27%
+					height: auto
+			&._error
+				margin-bottom: 50px
+				svg
+					position: absolute
+					top: -13%
+					left: 53%
+					width: 30%
+					height: auto
+		.description
+			margin-top: 50px
+			p
+				&.en
+					font-size: px(20)
+					line-height: 1.5
+					+rwdmax(768)
+						font-size: px(18)
+				&.ch
+					font-size: px(16)
+					line-height: 1.8
+					margin-top: 15px
+					+rwdmax(768)
+						font-size: px(14)
+		.back-home
+			display: inline-flex
+			align-items: center
+			justify-content: center
+			max-width: 300px
+			width: 85%
+			padding: 20px
+			background-color: #16BF97
+			border-radius: 5px
+			color: #fff
+			margin-top: 50px
+			+rwdmax(768)
+				padding: 20px 10px
+			.text
+				font-size: px(16)
+			.countdown
+				display: flex
+				align-items: center
+				justify-content: center
+				width: 30px
+				height: 30px
+				border: 1px solid rgba(#fff,.5)
+				border-radius: 50%
+				margin-left: 20px

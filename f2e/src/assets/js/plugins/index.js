@@ -1,0 +1,5 @@
+export * as SwiperVer8 from "./swiperV8.plugin"
+export * as SwiperVer11 from "./swiperV11.plugin"
+export { default as gsap } from "./gsap.plugin"
+export { default as Fancybox } from "./fancybox.plugin"
+export * from "./lazyLoad.plugin"
