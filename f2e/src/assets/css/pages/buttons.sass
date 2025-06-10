@@ -23,12 +23,19 @@ $gradient-90: linear-gradient(90deg, #f598a8,#f6edb2)
     display: grid
     grid-template-columns: repeat(2, 1fr)
     grid-column-gap: 20px
+  +rwdmax(1200)
+    grid-template-columns: 30px repeat(12, 1fr) 30px
+    .title
+      grid-column: 2 / -2
+    .container
+      grid-column: 2 / -2
+      grid-template-columns: repeat(1, 1fr)
 .button
   counter-reset: button
 .btn-box
   display: flex
   align-items: center
-  gap: 10px
+  gap: 20px 10px
   width: 100%
   padding-bottom: 30px
   margin-bottom: 30px
@@ -66,9 +73,24 @@ $gradient-90: linear-gradient(90deg, #f598a8,#f6edb2)
     color: $primary
     font-weight: 600
     font-size: 16px
+  +rwdmax(768)
+    flex-wrap: wrap
+    justify-content: space-evenly
+    &::before
+      width: 100%
+      text-align: center
+    .desc
+      width: 100%
+      text-align: center
+    
 
-.swiper-box 
+.swiperBlock
   position: relative
+  width: 100%
+  .container
+    display: block
+
+
   
 // 按鈕１
 .button1
@@ -974,7 +996,6 @@ $gradient-90: linear-gradient(90deg, #f598a8,#f6edb2)
       width: 4px
       transition: .3s
 
-
 // 選單１０
 .menu10
   width: 30px
@@ -1012,3 +1033,6 @@ $gradient-90: linear-gradient(90deg, #f598a8,#f6edb2)
       &::before
         clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%)
         transition: .3s .15s
+
+// 輪播１
+.swiper-box1

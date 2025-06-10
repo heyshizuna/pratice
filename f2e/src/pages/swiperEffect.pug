@@ -1,0 +1,29 @@
+extends ../layouts/_template.pug
+
+block page
+  - const page = 'swiperEffect';
+  - const css = 'swiperEffect';
+
+block content
+  section.swiperBlock(d-grid)
+    // banner image card*3
+    .container
+      .swiper-box1
+        .swiper.Swiper1
+          .swiper-wrapper
+            .swiper-slide
+              .inner
+                .img-box
+                  img.detect-shade(src="./assets/img/test-img.jpeg", alt="" loading="lazy")
+            .swiper-slide
+              .inner
+                .img-box
+                  img.detect-shade(src="./assets/img/test-img.jpeg", alt="" loading="lazy")
+            .swiper-slide
+              .inner
+                .img-box
+                  img.detect-shade(src="./assets/img/test-img.jpeg", alt="" loading="lazy")
+        .swiper-button-next
+        .swiper-button-prev
+        .swiper-pagination
+    h3.title Swiper Effect

@@ -1,0 +1,27 @@
+@import ../base/_variable
+@import ../base/_mixin
+
+$primary: #2a2a2a
+$second: #d3d3d3
+$white: #fff
+$black: #000
+$gradient: linear-gradient( #f598a8,#f6edb2)
+$gradient-90: linear-gradient(90deg, #f598a8,#f6edb2)
+
+[d-grid]
+  display: grid
+  grid-template-columns: 60px repeat(20, 1fr) 60px
+  margin-bottom: 50px
+.swiperBlock
+  position: relative
+  width: 100%
+  .title
+    grid-column: 4 / -4
+    margin-top: 40px
+  .container
+    grid-column: 4 / -4
+    display: block
+
+// 輪播１
+.swiper-box1
+  position: relative

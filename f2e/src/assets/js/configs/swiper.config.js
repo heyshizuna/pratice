@@ -1,11 +1,12 @@
 import { SwiperVer11 } from "@/plugins"
 const {
+    Pagination,
     Navigation,
     Autoplay,
 } = SwiperVer11
 
 export const bannerConfig = {
-    modules: [Navigation, Autoplay],
+    modules: [Navigation, Pagination, Autoplay],
     autoplay: {
         delay: 5000,
     },
@@ -25,7 +26,7 @@ export const bannerConfig = {
     loop: true,
 }
 export const swiperConfig = {
-    modules: [Navigation, Autoplay],
+    modules: [Navigation, Pagination, Autoplay],
     autoplay: {
         delay: 5000,
     },

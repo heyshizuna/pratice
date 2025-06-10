@@ -38,7 +38,7 @@ swiperHandler.banner = function () {
       isVideo(swiper);
     },
   };
-  const banner = new SwiperV11('.swiper', bannerEvents );
+  const banner = new SwiperV11('.swiper', bannerEvents);
 };
 
 swiperHandler.all = function () {

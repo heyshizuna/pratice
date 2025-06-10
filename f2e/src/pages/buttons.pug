@@ -1,8 +1,8 @@
 extends ../layouts/_template.pug
 
 block page
-  - const page = 'mission';
-  - const css = 'mission';
+  - const page = 'buttons';
+  - const css = 'buttons';
 
 block content
   section.button(d-grid)
@@ -143,15 +143,3 @@ block content
         .desc
           p 適合的產業類型：物流業、交通運輸業
           p 說明：有通行動作都適合這個按鈕
-  section.swiperBlock(d-grid)
-    h3.title Swiper Effect
-    // banner image card*3
-    .container
-      .swiper-box 
-        .swiper.swiperbanner
-          .swiper-wrapper
-            .swiper-slide
-              img(src="./assets/img/test-img.jpeg" alt="" loding="lazy")
-        .swiper-pagination
-        .swiper-button-prev
-        .swiper-button-next
